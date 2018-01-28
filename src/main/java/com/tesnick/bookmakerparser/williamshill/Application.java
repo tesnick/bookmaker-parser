@@ -6,8 +6,10 @@ import com.tesnick.bookmakerparser.model.Odd;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,7 +31,9 @@ public class Application {
 
         System.out.println("Saving them to ./laLigaOdds.csv file...");
 
-        Writer writer = Files.newBufferedWriter(Paths.get("./laLigaOdds.csv"));
+        String timestamp = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
+
+        Writer writer = Files.newBufferedWriter(Paths.get("./laLigaOdds_" + timestamp + ".csv"));
 
         CSVWriter csvWriter = new CSVWriter(writer,
                 ';',
