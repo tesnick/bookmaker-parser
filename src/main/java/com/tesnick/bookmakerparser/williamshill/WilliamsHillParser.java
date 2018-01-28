@@ -21,6 +21,8 @@ public class WilliamsHillParser {
 
     private String HOME_CHAMPIONS_LEAGUE = "http://sports.williamhill.es/bet_esp/es/betting/t/344/UEFA+Champions+League.html";
 
+    private String HOME_PREMIERE = "http://sports.williamhill.es/bet_esp/es/betting/t/295/Inglaterra+-+Premier+League.html";
+
     public List<Odd> getLaLigaOdds() {
 
         List<Odd> oddList = new ArrayList<>();
@@ -54,6 +56,30 @@ public class WilliamsHillParser {
         try {
 
             Document doc = Jsoup.connect(HOME_CHAMPIONS_LEAGUE).get();
+
+            for (Element newBetLiveHolder : doc.select("#newBetLiveHolder")) {
+
+                if(newBetLiveHolder.getElementsByClass("betLiveTop").size() == 0)
+                    continue;;
+
+
+                oddList.addAll(parsePartidosFuturos(newBetLiveHolder));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return oddList;
+    }
+
+    public List<Odd> getPremiereOdds(){
+
+        List<Odd> oddList = new ArrayList<>();
+
+        try {
+
+            Document doc = Jsoup.connect(HOME_PREMIERE).get();
 
             for (Element newBetLiveHolder : doc.select("#newBetLiveHolder")) {
 

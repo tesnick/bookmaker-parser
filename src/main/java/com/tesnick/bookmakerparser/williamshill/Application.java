@@ -43,5 +43,19 @@ public class Application {
         oddsCSVWriter.writeOddsToCSVFile(championsLeagueOdds, "championsLeagueOdds");
 
         System.out.println("Process finished");
+
+        System.out.println("Getting Premiere odds from William's Hill...");
+
+        List<Odd> premiereLeagueOdds = application.getPremiereOdds();
+
+        for (Odd ligaOdd : premiereLeagueOdds) {
+            System.out.println(ligaOdd);
+        }
+
+        System.out.println("Saving them to ./premiere.csv file...");
+
+        oddsCSVWriter.writeOddsToCSVFile(premiereLeagueOdds, "premiere");
+
+        System.out.println("Process finished");
     }
 }
