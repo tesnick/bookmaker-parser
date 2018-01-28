@@ -1,7 +1,7 @@
 # bookmaker-parser
 This is a project to extract odds from different bookmakers.
 
-First version takes only odds from "La Liga" and save them in a csv file called laLigaOdds.csv
+First version takes only odds from "La Liga" and "Champions League" and save them two different csv files.
 
 # how to build it 
 (Maven is needed https://maven.apache.org/install.html)
@@ -17,7 +17,7 @@ After that, you should see something like this:
 
 Getting La Liga odds from William's Hill...
 
-Odd{time='01:55', localTeam='Sevilla', visitingTeam='Getafe', localWinnerOdd=1.5, tieOdd=4.2, visitingOdd=6.5}
+Odd{time='29:33', localTeam='Sevilla', visitingTeam='Getafe', localWinnerOdd=1.73, tieOdd=3.2, visitingOdd=5.8}
 
 Odd{time='Directo', localTeam='Barcelona', visitingTeam='Alavés', localWinnerOdd=1.1, tieOdd=10.0, visitingOdd=19.0}
 
@@ -47,3 +47,24 @@ Saving them to ./laLigaOdds.csv file...
 
 Process finished
 
+Getting Champions League odds from William's Hill...
+
+Odd{time='19:45 UK', localTeam='Juventus', visitingTeam='Tottenham', localWinnerOdd=1.95, tieOdd=3.4, visitingOdd=4.0}
+
+Odd{time='19:45 UK', localTeam='Basilea', visitingTeam='Man City', localWinnerOdd=8.5, tieOdd=4.8, visitingOdd=1.36}
+
+Odd{time='19:45 UK', localTeam='Oporto', visitingTeam='Liverpool', localWinnerOdd=3.0, tieOdd=3.6, visitingOdd=2.2}
+
+Odd{time='19:45 UK', localTeam='Real Madrid', visitingTeam='PSG', localWinnerOdd=2.3, tieOdd=3.5, visitingOdd=2.9}
+
+Odd{time='19:45 UK', localTeam='Chelsea', visitingTeam='Barcelona', localWinnerOdd=3.3, tieOdd=3.6, visitingOdd=2.1}
+
+Odd{time='19:45 UK', localTeam='Bayern Múnich', visitingTeam='Besiktas', localWinnerOdd=1.17, tieOdd=6.5, visitingOdd=15.0}
+
+Odd{time='19:45 UK', localTeam='Sevilla', visitingTeam='Man Utd', localWinnerOdd=3.0, tieOdd=3.4, visitingOdd=2.25}
+
+Odd{time='19:45 UK', localTeam='Shakhtar Donetsk', visitingTeam='Roma', localWinnerOdd=2.62, tieOdd=3.25, visitingOdd=2.7}
+
+Saving them to ./championsLeagueOdds.csv file...
+
+Process finished
