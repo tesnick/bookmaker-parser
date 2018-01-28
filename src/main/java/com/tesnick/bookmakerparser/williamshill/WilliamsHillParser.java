@@ -7,7 +7,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +18,8 @@ public class WilliamsHillParser {
     private String SPAIN_HOME_URL = "http://sports.williamhill.es/bet_esp/es";
 
     private String HOME_LALIGA = "http://sports.williamhill.es/bet_esp/es/betting/t/338/LaLiga.html";
+
+    private String HOME_CHAMPIONS_LEAGUE = "http://sports.williamhill.es/bet_esp/es/betting/t/344/UEFA+Champions+League.html";
 
     public List<Odd> getLaLigaOdds() {
 
@@ -38,6 +39,30 @@ public class WilliamsHillParser {
             Element partidosFuturos = doc.select("#newBetLiveHolder").get(newBetLiveHolders.size()-1);
 
             oddList.addAll(parsePartidosFuturos(partidosFuturos));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return oddList;
+    }
+
+    public List<Odd> getChampionsLeagueOdds(){
+
+        List<Odd> oddList = new ArrayList<>();
+
+        try {
+
+            Document doc = Jsoup.connect(HOME_CHAMPIONS_LEAGUE).get();
+
+            for (Element newBetLiveHolder : doc.select("#newBetLiveHolder")) {
+
+                if(newBetLiveHolder.getElementsByClass("betLiveTop").size() == 0)
+                    continue;;
+
+
+                oddList.addAll(parsePartidosFuturos(newBetLiveHolder));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
